@@ -1,0 +1,76 @@
+<% layout('../views/layouts/boilerplate')%>
+<div class="row">
+  <h1 class="text-center">New Bug</h1>
+  <div class="col-md-6 offset-md-3">
+    <form
+      action="/bugs"
+      method="POST"
+      novalidate
+      class="validated-form"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="name">Name</label>
+        <input
+          class="form-control"
+          type="text"
+          id="name"
+          name="bug[name]"
+          required
+        />
+        <div class="valid-feedback">Looks fine!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="bug[location]"
+          required
+        />
+        <div class="valid-feedback">Looks fine!</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fst" for="sciName">👨‍🔬Scientific Name?👩‍🔬</label>
+        <input
+          class="form-control fst-italic"
+          type="text"
+          id="sciName"
+          name="bug[sciName]"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="bug[description]"
+          required
+        ></textarea>
+        <div class="valid-feedback">Looks fine!</div>
+      </div>
+      <div class="mb-3">
+        <div class="form-file custom-file">
+          <label for="image" class="form-label custom-file-label"
+            >Add Images</label
+          >
+          <input
+            class="form-control"
+            type="file"
+            id="image"
+            multiple
+            name="image"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-success">ADD BUG!</button>
+      </div>
+    </form>
+    <a href="/bugs">All Bugs!</a>
+  </div>
+</div>

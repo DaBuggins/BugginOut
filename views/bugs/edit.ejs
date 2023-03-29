@@ -1,0 +1,93 @@
+<% layout('../views/layouts/boilerplate')%>
+
+<div class="row">
+  <h1 class="text-center">Edit Bug</h1>
+  <div class="col-md-6 offset-md-3">
+    <form
+      action="/bugs/<%= bug._id %>?_method=PUT"
+      method="POST"
+      novalidate
+      class="validated-form"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="name">Name</label>
+        <input
+          class="form-control"
+          type="text"
+          id="name"
+          name="bug[name]"
+          value="<%= bug.name %>"
+          required
+        />
+        <div class="valid-feedback">Looks fine!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="bug[location]"
+          value="<%= bug.location %>"
+          required
+        />
+        <div class="valid-feedback">Looks fine!</div>
+      </div>
+   
+        <label class="form-label fst" for="sciName">👨‍🔬Scientific Name?👩‍🔬</label>
+        <input
+          class="form-control fst-italic"
+          type="text"
+          id="sciName"
+          name="bug[sciName]"
+          value="<%= bug.sciName %>"
+        />
+        <div class="valid-feedback">Looks fine!</div>
+      </div>
+      <div class="mb-3 col-6 offset-3">
+        <label class="form-label " for="description">Description</label>
+        <textarea
+          class="form-control form-control-sm "
+          type="text"
+          id="description"
+          name="bug[description]"
+          rows="5"
+          required
+        >
+<%= bug.description %></textarea
+        >
+        <div class="valid-feedback">Looks fine!</div>
+      </div>
+
+      <div class="mb-3 col-6 offset-3">
+        <div class="form-file custom-file">
+          <label for="image" class="form-label custom-file-label"
+            >Add More Images</label
+          >
+          <input
+            class="form-control"
+            type="file"
+            id="image"
+            multiple
+            name="image"
+          />
+        </div>
+      </div>
+      <div class="mb-3 col-6 offset-3">
+        <% bug.images.forEach(function(img, i) { %>
+          <img src="<%= img.thumbnail %>" alt="" class="img-thumbnail">
+          <div class="form-check-inline">
+            <input type="checkbox" name="deleteImages[]" value="<%= img.filename %>" id="<%= i %>">
+          </div>
+          <label for="<%= i %>">Delete?</label>
+          <% }) %>
+      </div>
+
+      <div class="mb-3 col-6 offset-3">
+        <button class="btn btn-info">UPDATE BUG!</button>
+      </div>
+    </form>
+    <a href="/bugs/<%= bug._id %>">Back To Bugs!</a>
+  </div>
+</div>
