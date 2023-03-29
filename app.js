@@ -61,7 +61,7 @@ store.on("error", function (e)
 const sessionConfig = {
   store,
   name: "sesh",
-  secret: "asecret",
+  secret,
   resave: false,
   saveUninitialized: true,
   cookie: {
