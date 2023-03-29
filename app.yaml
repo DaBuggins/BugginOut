@@ -3,7 +3,6 @@ runtime: nodejs18 # or another supported version
 instance_class: F2
 
 env_variables:
-  BUCKET_NAME: "example-gcs-bucket"
   CLOUDINARY_CLOUD_NAME: "deskiol0z"
   CLOUDINARY_KEY: "888821443836758"
   CLOUDINARY_SECRET: "Jl4GptsNNNQ5MaeySq_hIbblxHY"
@@ -11,7 +10,6 @@ env_variables:
   DB_URL: "mongodb+srv://ourFirstUser:5rdh1poXTbeSGDkQ@bugginout.bxnnkgy.mongodb.net/?retryWrites=true&w=majority"
 
 handlers:
-- url: /.*
-  script: auto
-
-
+  - url: /.*
+    secure: always
+    script: auto

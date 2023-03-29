@@ -161,7 +161,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", { err });
 });
 
-const port = 3000;
+const port = parseInt(process.env.PORT) || 3000;
 app.listen(port, () => {
   console.log(`Serving bugs on port ${port}`);
 });
