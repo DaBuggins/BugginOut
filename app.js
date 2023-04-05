@@ -2,6 +2,9 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
+const {SecretManagerServiceClient} = require('@google-cloud/secret-manager');
+const client = new SecretManagerServiceClient();
+
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
