@@ -1,0 +1,15 @@
+runtime: nodejs18 # or another supported version
+
+instance_class: F2
+
+# env_variables:
+#   CLOUDINARY_CLOUD_NAME: "deskiol0z"
+#   CLOUDINARY_KEY: "888821443836758"
+#   CLOUDINARY_SECRET: "Jl4GptsNNNQ5MaeySq_hIbblxHY"
+#   MAPBOX_TOKEN: "pk.eyJ1IjoiYnVnZ2lucyIsImEiOiJjbGRzaXhoeHAwdDJtM3BxczVkM3p0d2NxIn0.1iWh9CaqNvaZncwio5x_rg"
+#   DB_URL: "mongodb+srv://ourFirstUser:5rdh1poXTbeSGDkQ@bugginout.bxnnkgy.mongodb.net/?retryWrites=true&w=majority"
+
+handlers:
+  - url: /.*
+    secure: always
+    script: auto
