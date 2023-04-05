@@ -3,7 +3,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const {SecretManagerServiceClient} = require('@google-cloud/secret-manager');
-const client = new SecretManagerServiceClient();
+// const client = new SecretManagerServiceClient();
 
 const express = require("express");
 const path = require("path");
@@ -26,7 +26,10 @@ const reviewRoutes = require("./routes/reviews");
 
 const MongoDBStore = require("connect-mongo");
 
-const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
+
+// dev and prod dbUrl, uncomment as necessary
+const dbUrl = "mongodb://127.0.0.1:27017/buggin-out";
+// const dbUrl = process.env.DB_URL;
 
 mongoose.set("strictQuery", true);
 mongoose.connect(dbUrl);
@@ -48,7 +51,7 @@ app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(mongoSanitize());
 
-const secret = process.env.SECRET || 'asecret';
+const secret = process.env.SECRET;
 
 const store = MongoDBStore.create({
   mongoUrl: dbUrl,
