@@ -2,8 +2,6 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
-const {SecretManagerServiceClient} = require('@google-cloud/secret-manager');
-// const client = new SecretManagerServiceClient();
 
 const express = require("express");
 const path = require("path");
@@ -25,7 +23,6 @@ const bugRoutes = require("./routes/bugs");
 const reviewRoutes = require("./routes/reviews");
 
 const MongoDBStore = require("connect-mongo");
-
 
 // dev and prod dbUrl, uncomment as necessary
 const dbUrl = "mongodb://127.0.0.1:27017/buggin-out";

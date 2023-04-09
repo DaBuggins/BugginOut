@@ -1,80 +1,59 @@
 <% layout('../views/layouts/boilerplate')%>
 <link rel="stylesheet" href="/stylesheets/stars.css">
 
-
-
-
-<div class="row">
-  <div class="col-6">
-    <div id='map'></div>
-
-    <div id="bugCarousel" class="col-md carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <% bug.images.forEach((img, i) => { %>
-
-        <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
-          <img src="<%= img.url%>" class="d-block w-100" alt="">
-        </div>
-        <% }) %>
-
-      </div>
-      <% if(bug.images.length > 1) { %>
-      <button class="carousel-control-prev" type="button" data-bs-target="#bugCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#bugCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      <% } %>
+<div class="container mb-auto px-auto">
+  <div class="row" >
+    <div class="col" >
+      <%- include('../partials/imageRoll')%>
     </div>
+    <div class="col">
+      <div class="border rounded" id='map' ></div>
+    </div>
+  </div>
+</div>
 
-    <div class="card mb-3">
-
-      <div class="card-body">
-        <h3 class="card-title"><%= bug.name %></h3>
-        <h6 class="card-subtitle mb-2 text-muted fs-7 fst-italic">
-          <%= bug.sciName %>
-        </h6>
-        <p class="card-text"><%= bug.description %></p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item text-muted"><%= bug.location %></li>
-          <li class="list-group-item">
-            Submitted by <%= bug.author.username %>
-          </li>
-        </ul>
-        <% if(currentUser && bug.author.equals(currentUser._id)) { %>
+<div class="container mt-5">
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">
+        <%= bug.name %>
+      </h3>
+      <h6 class="card-subtitle mb-2 text-muted fs-7 fst-italic">
+        <%= bug.sciName %>
+      </h6>
+      <p class="card-text">
+        <%= bug.description %>
+      </p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-muted">
+          <%= bug.location %>
+        </li>
+        <li class="list-group-item">
+          Submitted by <%= bug.author.username %>
+        </li>
+      </ul>
+      <% if(currentUser && bug.author.equals(currentUser._id)) { %>
         <div class="card-body">
-          <a href="/bugs/<%= bug._id %>/edit" class="card-link btn btn-warning"
-            >EDIT
+          <a href="/bugs/<%= bug._id %>/edit" class="card-link btn btn-warning">EDIT
           </a>
-          <form
-            class="d-inline"
-            action="/bugs/<%= bug._id %>?_method=DELETE"
-            method="POST"
-          >
+          <form class="d-inline" action="/bugs/<%= bug._id %>?_method=DELETE" method="POST">
             <button class="btn btn-danger">DELETE</button>
           </form>
         </div>
         <% } %>
-        <div class="card-footer tet-muted">2 days ago</div>
-      </div>
+          <div class="card-footer tet-muted">2 days ago</div>
     </div>
   </div>
-  <div class="mb-auto">
-    <% if(currentUser){ %>
+</div>
+<div class="mb-auto">
+  <% if(currentUser){ %>
     <h2>Leave a review</h2>
-    <form
-      class="mb-3 validated-form"
-      action="/bugs/<%= bug._id %>/reviews"
-      method="POST"
-      novalidate
-    >
+    <form class="mb-3 validated-form" action="/bugs/<%= bug._id %>/reviews" method="POST" novalidate>
 
-        <div class="mb-3">
+      <div class="mb-3">
         <fieldset class="starability-basic">
-          <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="3" checked aria-label="No rating." />
+          <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="3" checked
+            aria-label="No rating." />
           <input type="radio" id="first-rate1" name="review[rating]" value="1" />
           <label for="first-rate1" title="Terrible">1 star</label>
           <input type="radio" id="first-rate2" name="review[rating]" value="2" />
@@ -87,47 +66,41 @@
           <label for="first-rate5" title="Amazing">5 stars</label>
         </fieldset>
       </div>
-        <label class="form-label mb-3 fst-italic" for="body">What do you think?</label>
-        <textarea
-          class="form-control mb-3"
-          name="review[body]"
-          id="body"
-          cols="30"
-          rows="3"
-          required
-        ></textarea>
-        <button class="btn btn-success">Submit</button>
-    
-    </form>
-    <% } %> <% for(let review of bug.reviews) { %>
-    <div class="card">
-      <div class="mb-3 card-body">
-        
-        <p class="starability-result" data-rating="<%= review.rating %>">
-          <h6 class="card-title"><%= review.author.username %> </h6>
-        </p>
-        <h6 class="card-subtitle mb-2 text-muted">
-          <%= review.rating %> stars
-        </h6>
-        <p class="card-text">Review: <%= review.body %></p>
-        <% if(currentUser && review.author.equals(currentUser._id)) { %>
-        <form
-          action="/bugs/<%= bug._id %>/reviews/<%= review._id %>?_method=DELETE"
-          method="POST"
-        >
-          <button class="btn btn-sm btn-danger">Delete</button>
-        </form>
-        <% } %>
-      </div>
-    </div>
-    <% } %>
-  </div>
-</div>
+      <label class="form-label mb-3 fst-italic" for="body">What do you think?</label>
+      <textarea class="form-control mb-3" name="review[body]" id="body" cols="30" rows="3" required></textarea>
+      <button class="btn btn-success">Submit</button>
 
+    </form>
+    <% } %>
+      <% for(let review of bug.reviews) { %>
+        <div class="card">
+          <div class="mb-3 card-body">
+
+            <p class="starability-result" data-rating="<%= review.rating %>">
+            <h6 class="card-title">
+              <%= review.author.username %>
+            </h6>
+            </p>
+            <h6 class="card-subtitle mb-2 text-muted">
+              <%= review.rating %> stars
+            </h6>
+            <p class="card-text">Review: <%= review.body %>
+            </p>
+            <% if(currentUser && review.author.equals(currentUser._id)) { %>
+              <form action="/bugs/<%= bug._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </form>
+              <% } %>
+          </div>
+        </div>
+        <% } %>
+</div>
+</div>
+</div>
 
 <script>
   const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-  const bug = <%- JSON.stringify(bug)%>
+  const bug = <%-JSON.stringify(bug)%>
 </script>
 
-<script src="/javascripts/showPageMap.js"></script>
+<script src="/javascripts/showPageMap.js" ></script>
