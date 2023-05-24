@@ -25,8 +25,8 @@ const reviewRoutes = require("./routes/reviews");
 const MongoDBStore = require("connect-mongo");
 
 // dev and prod dbUrl, uncomment as necessary
-const dbUrl = "mongodb://127.0.0.1:27017/buggin-out";
-// const dbUrl = process.env.DB_URL;
+// const dbUrl = "mongodb://127.0.0.1:27017/buggin-out";
+const dbUrl = process.env.DB_URL;
 
 mongoose.set("strictQuery", true);
 mongoose.connect(dbUrl);
