@@ -2,8 +2,13 @@ runtime: nodejs18 # or another supported version
 
 instance_class: F2
 
-includes:
-- env_variables.yaml
+env_variables:
+  CLOUDINARY_CLOUD_NAME: deskiol0z
+  CLOUDINARY_KEY: 888821443836758
+  CLOUDINARY_SECRET: Jl4GptsNNNQ5MaeySq_hIbblxHY
+  DB_URL: mongodb+srv://ourFirstUser:BUPCJ55Epx0GIHOr@bugginout.bxnnkgy.mongodb.net/
+  MAPBOX_TOKEN: pk.eyJ1IjoiYnVnZ2lucyIsImEiOiJjbGRzaXVhaWkxeGg1M3RvbGU3NjVwaWNmIn0.5SThpeXqdCBidUTtvjnOWA
+  SECRET: asecrettoeveryone
 
 
 handlers:
