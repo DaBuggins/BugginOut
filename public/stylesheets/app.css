@@ -1,9 +1,57 @@
 #cluster-map {
-    width: 100%;
-    height: 500px;
+    align-items: center;
+    width:100%;
+    height: 400px;
 }
 
 #map {
     width: 100%;
     height: 300px;
+}
+
+.img-thumbnail {
+    max-height: 250px;
+    min-width: 300px;
+    border: 2px solid rgba(0, 0, 0, 0.8);
+  }
+
+  h1 {
+    font: 800 40px Arial;
+    -webkit-text-fill-color: black;
+    -webkit-text-stroke: 200px;
+    
+  }
+
+  body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1532028205213-4c4fa81306d4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+
+.card {
+    max-width: 20vw;
+    min-width: 350px;
+    padding: 10px;
+    margin: 20px;
+    margin-right: 40px;
+    border: 3px solid rgba(173, 122, 26, 0.7);
+    background-color: rgba(200, 193, 173, 0.6)
+}
+
+.descriptor {
+    font-style: italic;
+    font-size: x-small;
+}
+
+.display-2 {
+    color: rgb(220, 160, 49);
+    font-weight: bolder;
+    display: inline-flex;
+}
+
+#title-map {    
+    text-align: center;
 }

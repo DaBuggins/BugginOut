@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://res.cloudinary.com/deskiol0z/image/upload/v1679138840/BugginOut/rxx0hopbzpn0nacmft6y.jpg");
+    url("https://res.cloudinary.com/deskiol0z/image/upload/v1684950311/BugginOut/james-wainscoat-GGewLGcQD-I-unsplash_bxaflo.jpg");
     background-size: cover;
     background-position: center;
     text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
@@ -33,4 +33,16 @@ body {
 .btn-secondary, .btn-secondary:hover{
     color: #333;
     text-shadow: none;
+}
+
+.display-1 {
+    font-weight: bold;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+.lead {
+    font-weight: bold;
+    -webkit-text-stroke-width: .75px;
+    -webkit-text-stroke-color: black;
 }
