@@ -135,7 +135,7 @@ module.exports = [
         state: "Ohio",
     },
     {
-        city: "Charlotte",
+        city: "Charlote",
         growth_from_2000_to_2013: "39.1%",
         latitude: 35.2270869,
         longitude: -80.8431267,
