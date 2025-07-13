@@ -5,8 +5,17 @@ const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 const { cloudinary } = require("../cloudinary");
 
-module.exports.index = async (req, res) => {
-  const bugs = await Bug.find({});
+module.exports.index = async (req, res) => {  
+  const limit = 21;
+  let page = 1; 
+  if (req.query.page) {
+    page = req.query.page
+  }
+  const offset = (page - 1) * limit;
+  const bugs = await Bug.find()
+    .skip(offset)
+    .limit(limit); 
+  
   res.render("bugs/index", { bugs });
 };
 

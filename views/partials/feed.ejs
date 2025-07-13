@@ -1,0 +1,38 @@
+<ul class="pagination">
+    <li class="page-item"><a id="pagbtn" class="btn btn-success" href="/bugs?page=1">1</a></li>
+    <li class="page-item"><a id="pagbtn" class="btn btn-success" href="/bugs?page=2">2</a></li>
+    <li class="page-item"><a id="pagbtn" class="btn btn-success" href="/bugs?page=3">3</a></li>
+    <li class="page-item"><a id="pagbtn" class="btn btn-success" href="/bugs?page=4">4</a></li>
+    <li class="page-item"><a id="pagbtn" class="btn btn-success" href="/bugs?page=5">5</a></li>
+</ul>
+</div>
+
+
+<div id="items" class="row" >
+
+<% for (let bug of bugs) {%>
+    <div id="card-btn" class="card" >
+      <div class="">
+        <% if(bug.images.length) { %>
+        <img id="thumb-img"   alt="" src="<%= bug.images[0].url %>" />        
+        <% } else { %>
+        <img
+          class="img-fluid"
+          alt=""
+          src="https://res.cloudinary.com/deskiol0z/image/upload/v1679138839/BugginOut/x0g8avsptzrmlxiv8jrf.jpg"
+        />
+      <% } %>
+    </div>
+    <div class="descriptor"><%= bug.description %></div>       
+      <div class="card-body">
+        <h5 class="card-title"><%= bug.name %></h5>
+        <small class="text-muted"><i><%= bug.sciName %></i></small>        
+        <p class="card-text"><%= bug.location %></p>
+        <p id="card-btn"  class="card-text">          
+                  <a id="pagbtn" class="btn btn-primary" href="/bugs/<%= bug._id %>"
+          >View <%= bug.name %></a>
+        </p>
+      </div>   
+  </div>
+<%  }%>
+</div>

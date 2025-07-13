@@ -5,45 +5,11 @@
   <div  id="cluster-map"></div>
 </div>
 
+<div class="container-fluid">
+  
+  <a id="new-btn"  class="btn btn-warning" href="/bugs/new"><b>ADD BUG</b></a>
 
-<div>
-  <a href="/bugs/new">ADD BUG</a>
-</div>
-
-<div class="row" >
-<% for (let bug of bugs) {%>
-  <div class="col" >
-    <div class="card" >
-      <div class="">
-        <% if(bug.images.length) { %>
-        <img  class="img-thumbnail" alt="" src="<%= bug.images[0].url %>" />
-        
-        <% } else { %>
-        <img
-          class="img-fluid"
-          alt=""
-          src="https://res.cloudinary.com/deskiol0z/image/upload/v1679138839/BugginOut/x0g8avsptzrmlxiv8jrf.jpg"
-        />
-      <% } %>
-    </div>
-    <div class="descriptor"><%= bug.description %></div>
-    <div class="">
-      <div class="card-body">
-        <h5 class="card-title"><%= bug.name %></h5>
-        <small class="text-muted"><%= bug.sciName %></small>        
-        <p class="card-text"><%= bug.location %></p>
-        <p class="card-text">
-          
-                  <a class="btn btn-primary" href="/bugs/<%= bug._id %>"
-          >View <%= bug.name %></a>
-        </p>
-
-      </div>
-    </div>
-  </div>
-</div>
-<% }%>
-</div>
+ <%- include('../partials/feed')%>
 
 <script>
   const mapToken = '<%-process.env.MAPBOX_TOKEN%>';

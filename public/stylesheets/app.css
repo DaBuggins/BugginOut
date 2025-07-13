@@ -1,3 +1,9 @@
+:root {
+    --buggrey:rgb(71, 75, 79);
+    --bugorng:rgb(220, 160, 49);
+    --buggrn: rgb(229, 217, 46);
+}
+
 #cluster-map {
     align-items: center;
     width:100%;
@@ -12,12 +18,12 @@
 .img-thumbnail {
     max-height: 250px;
     min-width: 300px;
-    border: 2px solid rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--buggrey);
   }
 
   h1 {
     font: 800 40px Arial;
-    -webkit-text-fill-color: black;
+    -webkit-text-fill-color: var(--buggrey)
     -webkit-text-stroke: 200px;
     
   }
@@ -55,3 +61,51 @@
 #title-map {    
     text-align: center;
 }
+ .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+ }
+
+ #pagbtn {
+    margin: 5px;
+    font-weight: bold;
+    color: var(--bugorng);
+    background-color: var(--buggrey);
+    border: none;
+ }
+
+ #navbar {
+    background-color: rgb(220, 160, 49);
+ }
+
+ #navbar-btn {
+    color: var(--buggrey);
+    font-weight: bold;
+ }
+
+ #nav-link {
+    color: var(--buggrey);
+    font-weight: 600;
+    margin-left: 10px;
+ }
+
+ #new-btn {
+    margin-top: 10px;
+    color: var(--buggrey);
+    background-color: var(--bugorng);
+ }
+
+ #card-btn {
+    align-items: center;
+ }
+
+ #thumb-img {
+    max-height: 200px;
+
+ }
+
+#items {
+    justify-content: center;
+ }

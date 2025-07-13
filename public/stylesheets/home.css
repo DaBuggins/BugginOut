@@ -14,13 +14,13 @@ body {
 .nav-link {
     padding: 0.25rem 0;
     font-weight: 700;
-    color: rgba(255,255,255,0.5);
+    color: rgb(220, 160, 49);
     margin-left: 1rem;
     border-bottom: 0.25rem solid transparent;
 }
 
 .nav-link:hover{
-    color: rgba(255,255,255,0.5);
+    color: rgb(246, 194, 98);
     border-bottom-color:rgba(255,255,255,0.5);
 }
 
@@ -36,6 +36,7 @@ body {
 }
 
 .display-1 {
+    color: rgb(220, 160, 49);
     font-weight: bold;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
@@ -46,3 +47,14 @@ body {
     -webkit-text-stroke-width: .75px;
     -webkit-text-stroke-color: black;
 }
+
+ #new-btn {
+    margin-top: 10px;
+    color:rgb(220, 160, 49);
+    background-color: rgb(71, 75, 79);
+ }
+
+ h3 {
+    color: rgb(220, 160, 49);
+    font-weight: bold;
+ }
