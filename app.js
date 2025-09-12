@@ -15,8 +15,6 @@ const User = require("./models/user");
 const mongoSanitize = require("express-mongo-sanitize");
 const helmet = require("helmet");
 
-
-
 const ExpressError = require("./utils/ExpressError");
 const methodOverride = require("method-override");
 
@@ -31,6 +29,7 @@ const MongoDBStore = require("connect-mongo");
 const dbUrl = process.env.DB_URL;
 
 mongoose.set("strictQuery", true);
+// connects to mongo database (local or atlas depending on dbUrl)
 mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
@@ -41,10 +40,12 @@ db.once("open", () => {
 
 const app = express();
 
+// set express engine and views location
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+// express middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
@@ -58,8 +59,7 @@ const store = MongoDBStore.create({
   touchAfter: 24 * 60 * 60
 });
 
-store.on("error", function (e)
-{
+store.on("error", function (e) {
   console.log("SESSION STORE ERROR", e)
 })
 
@@ -113,6 +113,7 @@ const connectSrcUrls = [
   "https://events.mapbox.com/",
 ];
 const fontSrcUrls = [];
+
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
@@ -126,7 +127,7 @@ app.use(
         "'self'",
         "blob:",
         "data:",
-        "https://res.cloudinary.com/deskiol0z/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT!
+        "https://res.cloudinary.com/deskiol0z/",
         "https://images.unsplash.com/",
       ],
       fontSrc: ["'self'", ...fontSrcUrls],

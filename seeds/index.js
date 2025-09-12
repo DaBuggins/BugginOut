@@ -10,8 +10,6 @@ const dbUrl = process.env.DB_URL;
 const ObjectId = require('mongodb').ObjectId;
 
 
-
-
 mongoose.set('strictQuery', false);
 // mongoose.connect('mongodb://127.0.0.1:27017/buggin-out'); 
 mongoose.connect(dbUrl);
@@ -25,6 +23,7 @@ db.once("open", () => {
 
 const sample = array => array[Math.floor(Math.random() * array.length)];
 
+// seeds database with 200 example entries
 const seedDB = async () => {
     await Bug.deleteMany({});
     for (let i = 0; i < 200; i++) {

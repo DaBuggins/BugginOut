@@ -5,6 +5,7 @@ const User = require("../models/user");
 const passport = require("passport");
 const users = require("../controllers/users");
 
+// groups routes for /users
 router
   .route("/register")
   .get(users.renderRegister)

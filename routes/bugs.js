@@ -7,10 +7,11 @@ const multer = require("multer");
 const { storage } = require("../cloudinary");
 const upload = multer({ storage });
 
+// groups routes for /bugs
 router
   .route("/")
   .get(catchAsync(bugs.index))
-  .post(isLoggedIn, upload.array('image'),  validateBug, catchAsync(bugs.createBug));
+  .post(isLoggedIn, upload.array('image'), validateBug, catchAsync(bugs.createBug));
 
 
 router.get("/new", isLoggedIn, bugs.renderNewForm);

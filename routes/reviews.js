@@ -7,6 +7,7 @@ const reviews = require("../controllers/reviews");
 const Review = require("../models/review");
 const Bug = require("../models/bugs");
 
+// groups routes for /bugs/:id/reviews
 router.post("/", isLoggedIn, validateReview, catchAsync(reviews.createReview));
 
 router.delete(
