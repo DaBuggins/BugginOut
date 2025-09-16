@@ -2,7 +2,6 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
-
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
@@ -155,6 +154,10 @@ app.use("/bugs/:id/reviews", reviewRoutes);
 
 app.get("/", (req, res) => {
   res.render("home");
+});
+
+app.get("/about", (req, res) => {
+  res.render("about");
 });
 
 app.all("*", (req, res, next) => {

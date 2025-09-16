@@ -1,19 +1,17 @@
 <% layout('../views/layouts/boilerplate')%>
 
-<div class="container col-10" id="title-map" style="text-align: center;">
-  <h2 class="display-2">"BUGGIN OUT"</h2>  
-  <div  id="cluster-map"></div>
+<div class="container col-10" id="title-map" style="text-align: center">
+  <h2 class="display-2">"BUGGIN OUT"</h2>
+  <div id="cluster-map"></div>
 </div>
 
 <div class="container-fluid">
-  
-  <a id="new-btn"  class="btn btn-warning" href="/bugs/new"><b>ADD BUG</b></a>
+  <%- include('../partials/feed')%>
 
- <%- include('../partials/feed')%>
+  <script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+    const bugs = {features: <%- JSON.stringify(bugs)%>}
+  </script>
 
-<script>
-  const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-  const bugs = {features: <%- JSON.stringify(bugs)%>}
-</script>
-
-<script src="/javascripts/clusterMap.js"></script>
+  <script src="/javascripts/clusterMap.js"></script>
+</div>

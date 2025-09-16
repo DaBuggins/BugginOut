@@ -24,15 +24,17 @@ module.exports.renderLogin = (req, res) => {
   res.render("users/login");
 };
 
-module.exports.login =  (req, res) => {
-    req.flash('success', 'welcome back!');    
-    delete req.session.returnTo;
-    const redirectUrl = req.session.returnTo || '/bugs';
-    res.redirect(redirectUrl);
+module.exports.login = (req, res) => {
+  req.flash('success', 'Welcome back!');
+  delete req.session.returnTo;
+  const redirectUrl = req.session.returnTo || '/bugs';
+  res.redirect(redirectUrl);
 }
 
 module.exports.logout = (req, res) => {
-    req.logout();
+  req.logout(function (err) {
+    if (err) { return next(err); }
     req.flash("success", "Goodbye!");
     res.redirect("/bugs");
-  }
+  })
+}

@@ -1,3 +1,7 @@
+<div class="pagination">
+  <a id="new-btn"  class="btn btn-warning" href="/bugs/new"><b>ADD BUG</b></a>
+</div>
+
 <ul class="pagination">
     <li class="page-item"><a id="pagbtn" class="btn btn-success" href="/bugs?page=1">1</a></li>
     <li class="page-item"><a id="pagbtn" class="btn btn-success" href="/bugs?page=2">2</a></li>
@@ -11,7 +15,7 @@
 <div id="items" class="row" >
 
 <% for (let bug of bugs) {%>
-    <div id="card-btn" class="card" >
+    <div id="card-btn" class="col card" >
       <div class="">
         <% if(bug.images.length) { %>
         <img id="thumb-img"   alt="" src="<%= bug.images[0].url %>" />        
@@ -35,4 +39,13 @@
       </div>   
   </div>
 <%  }%>
+
+<ul class="pagination">
+    <li class="page-item"><a id="pagbtn" class="btn btn-success" href="/bugs?page=1">1</a></li>
+    <li class="page-item"><a id="pagbtn" class="btn btn-success" href="/bugs?page=2">2</a></li>
+    <li class="page-item"><a id="pagbtn" class="btn btn-success" href="/bugs?page=3">3</a></li>
+    <li class="page-item"><a id="pagbtn" class="btn btn-success" href="/bugs?page=4">4</a></li>
+    <li class="page-item"><a id="pagbtn" class="btn btn-success" href="/bugs?page=5">5</a></li>
+</ul>
+</div>
 </div>

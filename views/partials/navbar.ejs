@@ -1,6 +1,6 @@
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark sticky-top">
   <div class="container-fluid">
-    <a id="navbar-btn" class="navbar-brand" href="/">Buggin Out!</a>
+    <a id="navbar-btn" class="navbar-brand px-3" href="/">Buggin Out!</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -16,15 +16,18 @@
       <div class="navbar-nav">
         <a id="nav-link" class="nav-link" href="/bugs">Bugs</a>
         <a id="nav-link" class="nav-link" href="/bugs/new">New Bug</a>
+        <a id="nav-link" class="btn text-black font-weight-bold" href="/about"
+          >About</a
+        >
       </div>
     </div>
   </div>
   <div class="navbar-nav ml-auto">
     <% if(!currentUser) { %>
-    <a id="nav-link" class="nav-link" href="/login">LOGIN</a>
-    <a id="nav-link" class="nav-link" href="/register">REGISTER</a>
+    <a id="nav-link" class="nav-link me-3" href="/login">LOGIN</a>
+    <a id="nav-link" class="nav-link me-3" href="/register">REGISTER</a>
     <% } else { %>
-    <a id="nav-link" class="nav-link" href="/logout">LOGOUT</a>
+    <a id="nav-link" class="nav-link me-3" href="/logout">LOGOUT</a>
     <% } %>
   </div>
 </nav>
